@@ -110,7 +110,8 @@ hub:
   serviceSessionAffinity: "None"
 
   ## Define various attributes of the service
-  # serviceAnnotations:
+  serviceAnnotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
   #   # internal AWS ELB
   #   service.beta.kubernetes.io/aws-load-balancer-internal: "0.0.0.0/0"
 
@@ -150,7 +151,7 @@ hub:
 
 chrome:
   ## Enable the creation of a node-chrome pod
-  enabled: false
+  enabled: true
 
   ## DaemonSet instead of Deployment
   runAsDaemonSet: false
@@ -171,7 +172,7 @@ chrome:
   pullPolicy: "IfNotPresent"
 
   ## The number of pods in the deployment. This is ignored if runAsDaemonSet is enabled.
-  replicas: 1
+  replicas: 2
 
   ## Configure annotations on the chrome pods
   podAnnotations: {}
@@ -347,7 +348,7 @@ chromeDebug:
 
 firefox:
   ## Enable the creation of a node-firefox pod
-  enabled: false
+  enabled: true
 
   ## DaemonSet instead of Deployment
   runAsDaemonSet: false
@@ -368,7 +369,7 @@ firefox:
   pullPolicy: "IfNotPresent"
 
   ## The number of pods in the deployment. This is ignored if runAsDaemonSet is enabled.
-  replicas: 1
+  replicas: 2
 
   ## Configure annotations on the firefox pods
   podAnnotations: {}
